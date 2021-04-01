@@ -23,10 +23,10 @@ Membangun sebuah server jaringan dengan beberapa service dibawah ini :
 - Firewall <i>**(Coming Soon)**</i>
 
 ### Instalasi :
-```Bash
-apt-get install git
-git clone https://github.com/nurcholismajid/build_server_automation
-cd build_server_automation
-chmod +x dhcpServerAutomation.sh
-./dhcpServerAutomation.sh
+```SHELL
+# apt-get install git
+# git clone https://github.com/nurcholismajid/build_server_automation
+# cd build_server_automation
+# chmod +x dhcpServerAutomation.sh
+# ./dhcpServerAutomation.sh
 ```
