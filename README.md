@@ -21,3 +21,12 @@ Membangun sebuah server jaringan dengan beberapa service dibawah ini :
 - Reverse Proxy (Ngix) <i>**(Coming Soon)**</i>
 - VPN Server <i>**(Coming Soon)**</i>
 - Firewall <i>**(Coming Soon)**</i>
+
+### Instalasi :
+```Bash
+apt-get install git
+git clone https://github.com/nurcholismajid/build_server_automation
+cd build_server_automation
+chmod +x dhcpServerAutomation.sh
+./dhcpServerAutomation.sh
+```
