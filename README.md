@@ -24,9 +24,9 @@ Membangun sebuah server jaringan dengan beberapa service dibawah ini :
 
 ### Instalasi :
 ```SHELL
-# apt-get install git
-# git clone https://github.com/nurcholismajid/build_server_automation
-# cd build_server_automation
-# chmod +x dhcpServerAutomation.sh
-# ./dhcpServerAutomation.sh
+root@noorch:~# apt-get install git
+root@noorch:~# git clone https://github.com/nurcholismajid/build_server_automation
+root@noorch:~# cd build_server_automation
+root@noorch:~/build_server_automation# chmod +x dhcpServerAutomation.sh
+root@noorch:~/build_server_automation# ./dhcpServerAutomation.sh
 ```
