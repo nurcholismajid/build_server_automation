@@ -15,7 +15,7 @@ Membangun sebuah server jaringan dengan beberapa service dibawah ini :
 - CA (OpenSSL) <i>(Coming Soon)</i>
 - Monitoring Server (Cacti) <i>(Coming Soon)</i>
 - RADIUS <i>(Coming Soon)</i>
-- <mark>DHCP Server</mark> <i>(Done)</i>
+- DHCP Server <i>(Done)</i>
 - Routing <i>(Coming Soon)</i>
 - DHCP Relay <i>(Coming Soon)</i>
 - Reverse Proxy (Ngix) <i>(Coming Soon)</i>
