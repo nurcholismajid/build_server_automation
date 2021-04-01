@@ -1,20 +1,20 @@
 # BUILD SERVER AUTOMATION
 Membangun sebuah server jaringan dengan beberapa service dibawah ini :
-- RAID <i>(Comming Soon)</i>
-- User Unix <i>(Comming Soon)</i>
-- DNS Server <i>(Comming Soon)</i>
-- Web Server <i>(Comming Soon)</i>
-- FTP <i>(Comming Soon)</i>
-- Mail <i>(Comming Soon)</i>
-- File Server <i>(Comming Soon)</i>
-- SSH Server <i>(Comming Soon)</i>
-- CA (OpenSSL) <i>(Comming Soon)</i>
-- Monitoring Server (Cacti) <i>(Comming Soon)</i>
-- RADIUS <i>(Comming Soon)</i>
+- RAID <i>(Coming Soon)</i>
+- User Unix <i>(Coming Soon)</i>
+- DNS Server <i>(Coming Soon)</i>
+- Web Server <i>(Coming Soon)</i>
+- FTP <i>(Coming Soon)</i>
+- Mail <i>(Coming Soon)</i>
+- File Server <i>(Coming Soon)</i>
+- SSH Server <i>(Coming Soon)</i>
+- CA (OpenSSL) <i>(Coming Soon)</i>
+- Monitoring Server (Cacti) <i>(Coming Soon)</i>
+- RADIUS <i>(Coming Soon)</i>
 - DHCP Server <i>(Done)</i>
-- Routing <i>(Comming Soon)</i>
-- DHCP Relay <i>(Comming Soon)</i>
-- Reverse Proxy (Ngix) <i>(Comming Soon)</i>
-- VPN Server <i>(Comming Soon)</i>
-- Firewall <i>(Comming Soon)</i>
+- Routing <i>(Coming Soon)</i>
+- DHCP Relay <i>(Coming Soon)</i>
+- Reverse Proxy (Ngix) <i>(Coming Soon)</i>
+- VPN Server <i>(Coming Soon)</i>
+- Firewall <i>(Coming Soon)</i>
 
