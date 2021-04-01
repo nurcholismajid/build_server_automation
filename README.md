@@ -1,8 +1,9 @@
 # BUILD SERVER AUTOMATION
 Membangun sebuah server jaringan dengan beberapa service dibawah ini :
+### Teknologi :
 <br>
 <a href="#"><img src="https://img.shields.io/badge/Debian9-Server-_.svg?logo=debian"></a>
-<a href="#"><img src="https://img.shields.io/badge/Bash-SHELL-_.svg?logo=shell"></a>
+<a href="#"><img src="https://img.shields.io/badge/Bash-SHELL-_.svg?logo=terminal"></a>
 
 - RAID <i>(Coming Soon)</i>
 - User Unix <i>(Coming Soon)</i>
