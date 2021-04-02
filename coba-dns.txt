@@ -1,0 +1,22 @@
+zone "smkn1patrol.sch.id" {
+    type master;
+    file "/etc/bind/db.smk";
+};
+
+zone "192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.192";
+};
+
+; BIND reverse data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     smkn1patrol.sch.id. root.smkn1patrol.sch.id. (
+                            1           ;Serial
+                            604800      ;Refresh
+                            86400       ;Retry
+                            2419200     ;Expire
+                            604800 )    ;Negative Cache TTL
+;
+@       IN      NS      smkn1patrol.sch.id.
+1.27.168   IN      PTR     smkn1patrol.sch.id.

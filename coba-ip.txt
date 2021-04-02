@@ -1,0 +1,2 @@
+allow-hotplug ens33
+iface ens33 inet dhcp
