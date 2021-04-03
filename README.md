@@ -23,6 +23,10 @@ Membangun sebuah server jaringan dengan beberapa service dibawah ini :
 - Firewall <i>**(Coming Soon)**</i>
 
 ### Instalasi :
+#### Create Folder Backup
+```
+mkdir ~/backup
+```
 ```SHELL
 # DHCP Server
 root@noorch:~# apt-get install git

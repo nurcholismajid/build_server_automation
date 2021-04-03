@@ -8,10 +8,6 @@
 #           : v0.1
 # ============================================
 
-# prerequist
-apt update
-apt install isc-dhcp-server -y
-
 # List Color
 # Black        0;30     Dark Gray     1;30
 # Red          0;31     Light Red     1;31
@@ -68,15 +64,15 @@ echo -e "   - ${GREEN}ROUTERS${NC}      : ${YELLOW}$ROUTERS${NC}"
 echo -e "   - ${GREEN}BROADCAST${NC}    : ${YELLOW}$BROADCAST${NC}"
 
 # backup file
-mkdir backup
-cp /etc/dhcp/dhcpd.conf /backup/
+mkdir ~/backup
+cp /etc/dhcp/dhcpd.conf ~/backup
 # Setting DHCP
-sed -i "s/subnet 10.5.5.0 netmask 255.255.255.224/subnet $SUBNET netmask $NETMASK/g" /etc/dhcp/dhcpd.conf
-sed -i "s/range 10.5.5.26 10.5.5.30/range $RANGE/g" /etc/dhcp/dhcpd.conf
-sed -i "s/option domain-name-servers ns1.internal.example.org/option domain-name-servers $DNS/g" /etc/dhcp/dhcpd.conf
-sed -i "s/option domain-name \"internal.example.org\"/option domain-name \"$DOMAIN_NAME\"/g" /etc/dhcp/dhcpd.conf
-sed -i "s/option routers 10.5.5.1/option routers $ROUTERS/g" /etc/dhcp/dhcpd.conf
-sed -i "s/option broadcast-address 10.5.5.31/option broadcast-address $BROADCAST/g" /etc/dhcp/dhcpd.conf
+sed -i "s/# subnet 10.5.5.0 netmask 255.255.255.224/subnet $SUBNET netmask $NETMASK/g" /etc/dhcp/dhcpd.conf
+sed -i "s/# range 10.5.5.26 10.5.5.30/range $RANGE/g" /etc/dhcp/dhcpd.conf
+sed -i "s/# option domain-name-servers ns1.internal.example.org/option domain-name-servers $DNS/g" /etc/dhcp/dhcpd.conf
+sed -i "s/# option domain-name \"internal.example.org\"/option domain-name \"$DOMAIN_NAME\"/g" /etc/dhcp/dhcpd.conf
+sed -i "s/# option routers 10.5.5.1/option routers $ROUTERS/g" /etc/dhcp/dhcpd.conf
+sed -i "s/# option broadcast-address 10.5.5.31/option broadcast-address $BROADCAST/g" /etc/dhcp/dhcpd.conf
 # Setting Interfaces DHCP
 sed -i "s/INTERFACESv4=\"\"/INTERFACESv4=\"$INTERFACES\"/g" /etc/default/isc-dhcp-server
 # restarting

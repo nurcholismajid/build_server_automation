@@ -41,5 +41,6 @@ sed -i "s/127.0.0.1/$FIRST_BLOCK_IP.$IP_DIGIT/g" coba-dns.txt
 
 # restarting
 service bind9 restart
+service bind9 status
 
 # replace search & nameserver

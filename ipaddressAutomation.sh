@@ -4,7 +4,7 @@
 # AUTHOR    : NURCHOLIS MAJID
 #           : @no_orch
 #           : https://nurcholismajid.github.io/
-#           : DHCP SERVER AUTOMATION
+#           : IP ADDRESS AUTOMATION
 #           : v0.1
 # ============================================
 
