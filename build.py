@@ -26,6 +26,7 @@ def show_menu():
     console.print("[2]. :spaghetti: Konfigurasi [bold yellow]DHCP Server[/bold yellow]")
     console.print("[3]. :pizza: Konfigurasi [bold purple]DNS Server[/bold purple]")
     console.print("[4]. :hamburger: Konfigurasi [bold cyan]Web Server[/bold cyan]")
+    console.print("[5]. :space_invader: [bold yellow]EXIT[/bold yellow]")
     console.print("------------------------------")
     menu = int(input("Pilih Menu : "))
     return menu
@@ -52,13 +53,19 @@ def ip_addr_configure():
 
     # restarting network
     os.system('/etc/init.d/networking restart')
+    os.system(f'ifup {interfaces}')
     os.system('service networking restart')
+    os.system('ip addr');input("Enter untuk kembali ke menu...")
     os.system('clear')
-    os.system('ip addr');input()
 
 def ip_addr_reconfigure():
     backup_folder = f"{dir}/.backup"
     os.system(f"cp {backup_folder}/interfaces /etc/network/interfaces")
+    
+    # restarting network
+    os.system('/etc/init.d/networking restart')
+    os.system(f'ifup {interfaces}')
+    os.system('service networking restart');input("Enter untuk kembali ke menu...")
 
 if __name__ == "__main__":
     while(True):
@@ -70,13 +77,15 @@ if __name__ == "__main__":
         if (menu == 1):
             os.system("clear")
             console.print(" :ramen: [italic purple]Configuration[/italic purple] & [italic yellow]Reconfiguration[/italic yellow] [bold green]IP Address[/bold green]")
-            console.print(" ---------------------------------------------")
+            console.print(" -------------------------------------------------------------------------")
             console.print(" :memo:", end="")
-            recon = int(input(" Menu : (1). configure (2). reconfigure : "))
+            recon = int(input(" Menu : (1). configure (2). setting ke awal (3). reconfigure (4). back: "))
             if (recon == 1):
                 ip_addr_configure() # configure
             elif (recon == 2):
                 ip_addr_reconfigure() # reconfigure
+            elif (recon == 3):
+                ip_addr_reconfigure # reconfigure
                 ip_addr_configure() # configure
 
         elif (menu == 2):
@@ -85,3 +94,5 @@ if __name__ == "__main__":
             pass
         elif (menu == 4):
             pass
+        elif (menu == 5):
+            break
