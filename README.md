@@ -49,3 +49,6 @@ def backup_file():
     create_folder = f"mkdir {dir}/.backup"
     os.system(create_folder)
 ```
+
+#### Referensi :
+- [Replacing With Sed](https://unix.stackexchange.com/questions/70878/replacing-string-based-on-line-number)
