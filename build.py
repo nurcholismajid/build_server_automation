@@ -132,7 +132,7 @@ if __name__ == "__main__":
         menu = show_menu()
 
         if (menu == 1):
-            menu_conf = configurate_menu()
+            menu_conf = configurate_menu("IP Address")
             if (menu_conf == 1):
                 ip_addr_configure() # configure
             elif (menu_conf == 2):
@@ -142,7 +142,7 @@ if __name__ == "__main__":
                 ip_addr_configure() # configure
 
         elif (menu == 2):
-            menu_conf = configurate_menu()
+            menu_conf = configurate_menu("DHCP Server")
             if (menu_conf == 1):
                 dhcp_server_configure() # configure
             elif (menu_conf == 2):
