@@ -25,10 +25,10 @@ Membangun sebuah server jaringan dengan beberapa service dibawah ini :
 
 ### Instalasi :
 ```SHELL
-root@noorch:~\# apt-get install git python3 python3-pip
-root@noorch:~\# python3 -r requirements.txt
-root@noorch:~\# git clone https://github.com/nurcholismajid/build_server_automation
-root@noorch:~\# cd build_server_automation
+root@noorch:~# apt-get install git python3 python3-pip
+root@noorch:~# python3 -r requirements.txt
+root@noorch:~# git clone https://github.com/nurcholismajid/build_server_automation
+root@noorch:~# cd build_server_automation
 root@noorch:~/build_server_automation# chmod +x build.py
 root@noorch:~/build_server_automation# python3 build.py
 ```
