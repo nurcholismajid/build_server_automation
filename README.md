@@ -24,7 +24,10 @@ Membangun sebuah server jaringan dengan service dibawah ini :
 - Firewall <i>**(Coming Soon)**</i>
 
 ### Instalasi :
-```SHELL
+```Shell
+apt-get install isc-dhcp-server
+```
+```Shell
 root@noorch:~# apt-get install git python3 python3-pip
 root@noorch:~# python3 -r requirements.txt
 root@noorch:~# git clone https://github.com/nurcholismajid/build_server_automation
