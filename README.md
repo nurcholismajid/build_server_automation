@@ -23,15 +23,25 @@ Membangun sebuah server jaringan dengan beberapa service dibawah ini :
 - Firewall <i>**(Coming Soon)**</i>
 
 ### Instalasi :
-#### Create Folder Backup
-```
-mkdir ~/backup
-```
 ```SHELL
-# DHCP Server
-root@noorch:~# apt-get install git
+root@noorch:~# apt-get install git python3 python3-pip
+root@noorch:~# python3 -r requirements.txt
 root@noorch:~# git clone https://github.com/nurcholismajid/build_server_automation
 root@noorch:~# cd build_server_automation
-root@noorch:~/build_server_automation# chmod +x *.sh
-root@noorch:~/build_server_automation# ./dhcpServerAutomation.sh
+root@noorch:~/build_server_automation# chmod +x build.py
+root@noorch:~/build_server_automation# python3 build.py
+```
+
+#### Membuat Folder Backup
+
+Folder .backup ada didalam direktori `build_server_automation` ketikan perintah `ls -a` untuk melihat folder
+
+```Python
+f = os.popen("pwd")
+dir = f.read().strip()
+
+def backup_file():
+    # create backup folder
+    create_folder = f"mkdir {dir}/.backup"
+    os.system(create_folder)
 ```
