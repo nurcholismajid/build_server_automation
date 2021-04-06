@@ -96,14 +96,14 @@ def dhcp_server_configure():
     broadcast = input("Masukan BROADCAST : ")
 
     # configurate
-    os.system(f'sed -i "s/#subnet 10.5.5.0 netmask 255.255.255.224/#subnet 10.5.5.0 netmask {netmask}/g" /etc/dhcp/dhcpd.conf')
+    os.system(f'sed -i "s/#subnet 10.5.5.0 netmask 255.255.255.224/#subnet {subnet} netmask {netmask}/g" /etc/dhcp/dhcpd.conf')
     os.system(f'sed -i "s/#  range 10.5.5.26 10.5.5.30/#  range {ip_range}/g" /etc/dhcp/dhcpd.conf')
     os.system(f'sed -i "s/#  option domain-name-servers ns1.internal.example.org/#  option domain-name-servers {dns}/g" /etc/dhcp/dhcpd.conf')
-    os.system(f'sed -i """s/#  option domain-name \"internal.example.org\"/#  option domain-name \"{domain_name}\"/g""" /etc/dhcp/dhcpd.conf')
+    os.system(f"sed -i 's/#  option domain-name \"internal.example.org\"/#  option domain-name \"{domain_name}\"/g' /etc/dhcp/dhcpd.conf")
     os.system(f'sed -i "s/#  option routers 10.5.5.1/#  option routers {routers}/g" /etc/dhcp/dhcpd.conf')
     os.system(f'sed -i "s/#  option broadcast-address 10.5.5.31/#  option broadcast-address {broadcast}/g" /etc/dhcp/dhcpd.conf')
     os.system('sed -i "50,58s/#//" /etc/dhcp/dhcpd.conf')
-    
+
     # Setting Interfaces DHCP
     os.system(f'sed -i "s/INTERFACESv4=\"\"/INTERFACESv4=\"{interfaces}\"/g" /etc/default/isc-dhcp-server')
 
