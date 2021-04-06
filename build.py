@@ -56,6 +56,9 @@ def ip_addr_configure():
     os.system('clear')
     os.system('ip addr');input()
 
+def ip_addr_reconfigure():
+    backup_folder = f"{dir}/.backup"
+    os.system(f"cp {backup_folder}/interfaces /etc/network/interfaces")
 
 if __name__ == "__main__":
     while(True):
@@ -63,9 +66,18 @@ if __name__ == "__main__":
         backup_file()
         # show the menu
         menu = show_menu()
-        
+
         if (menu == 1):
-            ip_addr_configure()
+            os.system("clear")
+            console.print(" :ramen: [italic purple]Configuration[/italic purple] & [italic yellow]Reconfiguration[/italic yellow] [bold green]IP Address[/bold green]")
+            console.print(" ---------------------------------------------")
+            console.print(" :memo:", end="")
+            recon = int(input(" Menu : (1). configure (2). reconfigure : "))
+            if (recon == 1):
+                ip_addr_configure() # configure
+            elif (recon == 2):
+                ip_addr_reconfigure() # reconfigure
+                ip_addr_configure() # configure
 
         elif (menu == 2):
             pass
