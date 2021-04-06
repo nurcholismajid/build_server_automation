@@ -47,8 +47,8 @@ def ip_addr_configure():
 
     # configure ip
     os.system('echo " " >> /etc/network/interfaces')
-    os.system(f'echo -e "      address {ip_address}" >> /etc/network/interfaces')
-    os.system(f'echo -e "      gateway {gateway}" >> /etc/network/interfaces')
+    os.system(f'echo "      address {ip_address}" >> /etc/network/interfaces')
+    os.system(f'echo "      gateway {gateway}" >> /etc/network/interfaces')
 
     # restarting network
     os.system('/etc/init.d/networking restart')
