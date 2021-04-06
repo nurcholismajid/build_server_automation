@@ -104,7 +104,7 @@ def dhcp_server_configure():
     os.system(f'sed -i "s/#  option broadcast-address 10.5.5.31/  option broadcast-address {broadcast}/g" /etc/dhcp/dhcpd.conf')
     os.system(f'sed -i "s/#  default-lease-time 600/  default-lease-time 600/g" /etc/dhcp/dhcpd.conf')
     os.system(f'sed -i "s/#  max-lease-time 7200/  max-lease-time 7200/g" /etc/dhcp/dhcpd.conf')
-    os.system(f'sed -i "s/#}/}/g" /etc/dhcp/dhcpd.conf')
+    os.system('sed -i "s/#}/}/g" /etc/dhcp/dhcpd.conf')
     
     # Setting Interfaces DHCP
     os.system(f'sed -i "s/INTERFACESv4=\"\"/INTERFACESv4=\"{interfaces}\"/g" /etc/default/isc-dhcp-server')
