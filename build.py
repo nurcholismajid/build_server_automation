@@ -109,7 +109,7 @@ def dhcp_server_configure():
 
     # restarting
     os.system("systemctl restart isc-dhcp-server")
-    os.system("systemctl status isc-dhcp-server")
+    os.system("systemctl status isc-dhcp-server");input("Enter untuk kembali ke menu...")
 
 # DHCP reconfigure
 def dhcp_server_reconfigure():
