@@ -224,6 +224,7 @@ if __name__ == "__main__":
                 ip_addr_reconfigure() # reconfigure
             elif (menu_conf == 3):
                 ip_addr_reconfigure() # reconfigure
+                os.system("clear")
                 ip_addr_configure() # configure
 
         elif (menu == 2):
@@ -234,6 +235,7 @@ if __name__ == "__main__":
                 dhcp_server_reconfigure() # reconfigure
             elif (menu_conf == 3):
                 dhcp_server_reconfigure() # reconfigure
+                os.system("clear")
                 dhcp_server_configure() # configure
 
         elif (menu == 3):
@@ -244,6 +246,7 @@ if __name__ == "__main__":
                 dns_reconfigure() # reconfigure
             elif (menu_conf == 3):
                 dns_reconfigure() # reconfigure
+                os.system("clear")
                 dns_configure() # configure
 
         elif (menu == 4):
@@ -254,6 +257,7 @@ if __name__ == "__main__":
                 ssh_server_reconfigure() # reconfigure
             elif (menu_conf == 3):
                 ssh_server_reconfigure() # reconfigure
+                os.system("clear")
                 ssh_server_configure() # configure
 
         elif (menu == 5):

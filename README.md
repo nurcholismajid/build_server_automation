@@ -23,35 +23,44 @@ Membangun sebuah server jaringan dengan service dibawah ini :
 - VPN Server <i>**(Coming Soon)**</i>
 - Firewall <i>**(Coming Soon)**</i>
 
-### Instalasi :
+### Backup File Konfigurasi
 
-Install requirements
+File konfigurasi original dari masing-masing service berada di folder `.backup` ketikan perintah `ls -a` untuk melihat folder.
+
+```Markdown
+.
+├── build.py
+├── .backup/
+    ├── dhcpd.conf
+    ├── isc-dhcp-server
+    ├── interfaces
+    └── ...
+```
+
+## Tutorial :
+### Disable Connect Internet
+
+Pada file `sources.list` berikan tanda pagar `#` pada bagian depan `deb http://` dan `deb-src http://`.
 
 ```Shell
-apt-get install isc-dhcp-server bind9 dnsutils apache2 php7.0 mysql-server phpmyadmin
+nano /etc/apt/sources.list
+
+-----------Before----------
+deb http://
+deb-src http://
+-----------After-----------
+# deb http://
+# deb-src http://
+--------------------------
 ```
+
+### Install paket yang diperlukan :
+
+Install requirements dibawah ini
+
 ```Shell
-root@noorch:~# apt-get install git python3 python3-pip
-root@noorch:~# python3 -r requirements.txt
-root@noorch:~# git clone https://github.com/nurcholismajid/build_server_automation
-root@noorch:~# cd build_server_automation
-root@noorch:~/build_server_automation# chmod +x build.py
-root@noorch:~/build_server_automation# python3 build.py
+apt-get install git python3 python3-pip isc-dhcp-server bind9 dnsutils apache2 php7.0 mysql-server phpmyadmin openssh-server -y
 ```
 
-#### Membuat Folder Backup
-
-Folder `.backup` ada didalam direktori `build_server_automation` ketikan perintah `ls -a` untuk melihat folder
-
-```Python
-f = os.popen("pwd")
-dir = f.read().strip()
-
-def backup_file():
-    # create backup folder
-    create_folder = f"mkdir {dir}/.backup"
-    os.system(create_folder)
-```
-
-#### Referensi :
+### Referensi :
 - [Replacing With Sed](https://unix.stackexchange.com/questions/70878/replacing-string-based-on-line-number)
