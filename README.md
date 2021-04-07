@@ -28,7 +28,7 @@ Membangun sebuah server jaringan dengan service dibawah ini :
 Install requirements
 
 ```Shell
-apt-get install isc-dhcp-server bind9 dnsutils
+apt-get install isc-dhcp-server bind9 dnsutils apache2 php7.0 mysql-server phpmyadmin
 ```
 ```Shell
 root@noorch:~# apt-get install git python3 python3-pip

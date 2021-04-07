@@ -123,6 +123,7 @@ def dhcp_server_reconfigure():
     os.system("systemctl restart isc-dhcp-server")
     os.system("systemctl status isc-dhcp-server");input("Enter untuk kembali ke menu...")
 
+# DNS Configure
 def dns_configure():
     # backup files
     backup_folder = f"{dir}/.backup"
@@ -164,6 +165,7 @@ def dns_configure():
     os.system("service bind9 restart")
     os.system("service bind9 status");input("Enter untuk kembali ke menu...")
 
+# DNS Reconfigure
 def dns_reconfigure():
     # backup file
     backup_folder = f"{dir}/.backup"
@@ -175,6 +177,18 @@ def dns_reconfigure():
     # restarting
     os.system("service bind9 restart")
     os.system("service bind9 status");input("Enter untuk kembali ke menu...")
+
+# WEB Server Configure
+def web_server_configure():
+    os.system("apt install apache2")
+    os.system("service apache2 restart")
+    os.system("service apache2 status")
+    os.system("clear")
+    os.system("apt install php7.0 mysql-server phpmyadmin")
+
+# WEB Server Reconfigure
+def web_server_reconfigure():
+    pass
 
 if __name__ == "__main__":
     while(True):
@@ -214,6 +228,13 @@ if __name__ == "__main__":
                 dns_configure() # configure
 
         elif (menu == 4):
-            pass
+            os.system("clear")
+            console.print(" :ramen: [italic purple]Configuration[/italic purple] & [italic yellow]Reconfiguration[/italic yellow] [bold green]WEB Server[/bold green]")
+            console.print(" -------------------------------------------------------------------------")
+            console.print(" :memo:", end="")
+            recon = int(input(" Menu : (1). configure (4). back: "))
+            if (recon == 1):
+                web_server_configure() # configure
+
         elif (menu == 5):
             break

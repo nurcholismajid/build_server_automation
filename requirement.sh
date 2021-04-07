@@ -1,2 +1,2 @@
-# DHCP Server
-apt install isc-dhcp-server -y
+# Requiremnts
+apt-get install isc-dhcp-server bind9 dnsutils
