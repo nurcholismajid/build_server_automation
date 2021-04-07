@@ -1,5 +1,5 @@
 # BUILD SERVER AUTOMATION
-Sponsor : [![forthebadge made-with-python](http://i2.wp.com/smkn1patrol.sch.id/v3/wp-content/uploads/2020/06/cropped-download-1-53x53.jpg)](http://smkn1patrol.sch.id/v3/)
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 Membangun sebuah server jaringan dengan service dibawah ini :
 ### Services :
 <a href="#"><img src="https://img.shields.io/badge/Debian9-Server-_.svg?logo=debian"></a>
