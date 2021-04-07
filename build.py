@@ -26,7 +26,7 @@ def show_menu():
     console.print("[1]. :fries: Konfigurasi [bold green]IP address[/bold green]")
     console.print("[2]. :spaghetti: Konfigurasi [bold yellow]DHCP Server[/bold yellow]")
     console.print("[3]. :pizza: Konfigurasi [bold purple]DNS Server[/bold purple]")
-    console.print("[4]. :hamburger: Konfigurasi [bold cyan]Web Server[/bold cyan]")
+    console.print("[4]. :hamburger: Konfigurasi [bold cyan]SSH Server[/bold cyan]")
     console.print("[5]. :space_invader: [bold yellow]EXIT[/bold yellow]")
     console.print("------------------------------")
     menu = int(input("Pilih Menu : "))
@@ -178,17 +178,36 @@ def dns_reconfigure():
     os.system("service bind9 restart")
     os.system("service bind9 status");input("Enter untuk kembali ke menu...")
 
-# WEB Server Configure
-def web_server_configure():
-    os.system("apt install apache2")
-    os.system("service apache2 restart")
-    os.system("service apache2 status")
-    os.system("clear")
-    os.system("apt install php7.0 mysql-server phpmyadmin")
+def ssh_server_configure():
+    # backup files
+    backup_folder = f"{dir}/.backup"
+    os.system(f"cp /etc/ssh/sshd_config {backup_folder}") # backup file sshd_config
 
-# WEB Server Reconfigure
-def web_server_reconfigure():
-    pass
+    # user input
+    port = input("Masukan Port : ")
+
+    # restarting and enable
+    os.system("systemctl start ssh")
+    os.system("systemctl enable ssh")
+    os.system("systemctl status ssh")
+
+    # configure
+    os.system(f'sed -i "s/#Port 22/Port {port}/g" /etc/ssh/sshd_config')
+
+    # check setup
+    os.system("systemctl restart ssh")
+    os.system("systemctl status ssh")
+    os.system("netstat -tulpn | grep ssh")
+
+def ssh_server_reconfigure():
+    # backup file
+    backup_folder = f"{dir}/.backup"
+    os.system(f"cp {backup_folder}/sshd_config /etc/ssh/")
+
+    # restarting and enable
+    os.system("systemctl start ssh")
+    os.system("systemctl enable ssh")
+    os.system("systemctl status ssh")
 
 if __name__ == "__main__":
     while(True):
@@ -204,7 +223,7 @@ if __name__ == "__main__":
             elif (menu_conf == 2):
                 ip_addr_reconfigure() # reconfigure
             elif (menu_conf == 3):
-                ip_addr_reconfigure # reconfigure
+                ip_addr_reconfigure() # reconfigure
                 ip_addr_configure() # configure
 
         elif (menu == 2):
@@ -214,7 +233,7 @@ if __name__ == "__main__":
             elif (menu_conf == 2):
                 dhcp_server_reconfigure() # reconfigure
             elif (menu_conf == 3):
-                dhcp_server_reconfigure # reconfigure
+                dhcp_server_reconfigure() # reconfigure
                 dhcp_server_configure() # configure
 
         elif (menu == 3):
@@ -224,17 +243,18 @@ if __name__ == "__main__":
             elif (menu_conf == 2):
                 dns_reconfigure() # reconfigure
             elif (menu_conf == 3):
-                dns_reconfigure # reconfigure
+                dns_reconfigure() # reconfigure
                 dns_configure() # configure
 
         elif (menu == 4):
-            os.system("clear")
-            console.print(" :ramen: [italic purple]Configuration[/italic purple] & [italic yellow]Reconfiguration[/italic yellow] [bold green]WEB Server[/bold green]")
-            console.print(" -------------------------------------------------------------------------")
-            console.print(" :memo:", end="")
-            recon = int(input(" Menu : (1). configure (4). back: "))
-            if (recon == 1):
-                web_server_configure() # configure
+            menu_conf = configurate_menu("SSH Server")
+            if (menu_conf == 1):
+                ssh_server_configure() # configure
+            elif (menu_conf == 2):
+                ssh_server_reconfigure() # reconfigure
+            elif (menu_conf == 3):
+                ssh_server_reconfigure() # reconfigure
+                ssh_server_configure() # configure
 
         elif (menu == 5):
             break
