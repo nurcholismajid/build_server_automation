@@ -219,7 +219,7 @@ def ftp_server_configure():
     os.system(f"cp /etc/vsftpd.conf {backup_folder}") # backup file sshd_config
 
     # user input
-    user = input("Masukan Nama : ")
+    user = input("Masukan Nama User : ")
 
     # firewall allow port
     os.system("ufw allow 20/tcp")
@@ -233,6 +233,7 @@ def ftp_server_configure():
     # restart
     os.system("systemctl restart vsftpd")
     os.system("systemctl enable vsftpd")
+    os.system("systemctl enable vsftpd.service")
     input("Enter untuk kembali ke menu...")
 
 # FTP Reconfigurate
@@ -244,6 +245,7 @@ def ftp_server_reconfigure():
     # restart
     os.system("systemctl restart vsftpd")
     os.system("systemctl enable vsftpd")
+    os.system("systemctl enable vsftpd.service")
     input("Enter untuk kembali ke menu...")
 
 
