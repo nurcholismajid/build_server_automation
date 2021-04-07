@@ -299,7 +299,6 @@ if __name__ == "__main__":
                 ssh_server_configure() # configure
 
         elif (menu == 5):
-            elif (menu == 4):
             menu_conf = configurate_menu("SSH Server")
             if (menu_conf == 1):
                 ftp_server_configure() # configure
