@@ -4,24 +4,24 @@ Membangun sebuah server jaringan dengan service dibawah ini :
 <a href="#"><img src="https://img.shields.io/badge/Debian9-Server-_.svg?logo=debian"></a>
 <a href="#"><img src="https://img.shields.io/badge/Bash-SHELL-_.svg?logo=terminal"></a>
 
-- IP Address <i>**(Done)**</i>
-- RAID <i>**(Coming Soon)**</i>
-- User Unix <i>**(Coming Soon)**</i>
-- DNS Server <i>**(Coming Soon)**</i>
-- Web Server <i>**(Coming Soon)**</i>
-- FTP <i>**(Coming Soon)**</i>
-- Mail <i>**(Coming Soon)**</i>
-- File Server <i>**(Coming Soon)**</i>
-- SSH Server <i>**(Coming Soon)**</i>
-- CA (OpenSSL) <i>**(Coming Soon)**</i>
-- Monitoring Server (Cacti) <i>**(Coming Soon)**</i>
-- RADIUS <i>**(Coming Soon)**</i>
-- DHCP Server <i>**(Done)**</i>
-- Routing <i>**(Coming Soon)**</i>
-- DHCP Relay <i>**(Coming Soon)**</i>
-- Reverse Proxy (Ngix) <i>**(Coming Soon)**</i>
-- VPN Server <i>**(Coming Soon)**</i>
-- Firewall <i>**(Coming Soon)**</i>
+- IP Address **(Done)**
+- RAID **(Coming Soon)**
+- User Unix **(Coming Soon)**
+- DNS Server **(Done)**
+- Web Server **(Done)**
+- FTP **(Coming Soon)**
+- Mail **(Coming Soon)**
+- File Server **(Coming Soon)**
+- SSH Server **(Done)**
+- CA (OpenSSL) **(Coming Soon)**
+- Monitoring Server (Cacti) **(Coming Soon)**
+- RADIUS **(Coming Soon)**
+- DHCP Server **(Done)**
+- Routing **(Coming Soon)**
+- DHCP Relay **(Coming Soon)**
+- Reverse Proxy (Ngix) **(Coming Soon)**
+- VPN Server **(Coming Soon)**
+- Firewall **(Coming Soon)**
 
 ## Backup File Konfigurasi
 
