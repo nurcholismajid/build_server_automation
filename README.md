@@ -5,23 +5,23 @@ Membangun sebuah server jaringan dengan service dibawah ini :
 <a href="#"><img src="https://img.shields.io/badge/Bash-SHELL-_.svg?logo=terminal"></a>
 
 - IP Address **(Done)**
-- RAID **(Coming Soon)**
-- User Unix **(Coming Soon)**
+- RAID (Coming Soon)
+- User Unix (Coming Soon)
 - DNS Server **(Done)**
 - Web Server **(Done)**
-- FTP **(Coming Soon)**
-- Mail **(Coming Soon)**
-- File Server **(Coming Soon)**
+- FTP (Coming Soon)
+- Mail (Coming Soon)
+- File Server (Coming Soon)
 - SSH Server **(Done)**
-- CA (OpenSSL) **(Coming Soon)**
-- Monitoring Server (Cacti) **(Coming Soon)**
-- RADIUS **(Coming Soon)**
+- CA (OpenSSL) (Coming Soon)
+- Monitoring Server (Cacti) (Coming Soon)
+- RADIUS (Coming Soon)
 - DHCP Server **(Done)**
-- Routing **(Coming Soon)**
-- DHCP Relay **(Coming Soon)**
-- Reverse Proxy (Ngix) **(Coming Soon)**
-- VPN Server **(Coming Soon)**
-- Firewall **(Coming Soon)**
+- Routing (Coming Soon)
+- DHCP Relay (Coming Soon)
+- Reverse Proxy (Ngix) (Coming Soon)
+- VPN Server (Coming Soon)
+- Firewall (Coming Soon)
 
 ## Backup File Konfigurasi
 
