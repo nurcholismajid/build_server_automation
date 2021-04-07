@@ -132,6 +132,7 @@ def dns_configure():
     
     # user input
     domain_name = input("Masukan Domain Name : ")
+    ip_address = input("Masukan IP Address : ")
     first_block_ip = input("Masukan Blok Awal IP : ")
     db_name = input("Masukan Nama DB name : ")
     db_ip = input("Masukan Nama DB IP : ")
@@ -144,18 +145,19 @@ def dns_configure():
     os.system(f"sed -i 's/bind\/\db.127/bind\/\db.{db_ip}/g' /etc/bind/named.conf.default-zones")
     
     # configure dns: db.local
-    os.system(f"sed -i 's/localhost./{domain_name}./g' /etc/bind/db.local")
-    os.system(f"sed -i 's/1.0.0/{ip_digit}/g' /etc/bind/db.local")
+    os.system(f"sed -i 's/localhost./{domain_name}./g' /etc/bind/db.127")
+    os.system(f"sed -i 's/1.0.0/{ip_digit}/g' /etc/bind/db.127")
     os.system(f"mv /etc/bind/db.local /etc/bind/db.{db_name}")
 
     # configure dns: db.127
-    os.system(f"sed -i 's/localhost./{domain_name}./g' /etc/bind/db.127")
-    os.system(f"sed -i 's/127.0.0.1/{first_block_ip}.{ip_digit}/g' /etc/bind/db.127")
+    os.system(f"sed -i 's/localhost./{domain_name}./g' /etc/bind/db.local")
+    os.system(f"sed -i 's/127.0.0.1/{ip_address}/g' /etc/bind/db.local")
+    os.system(f"sed -i '14s/@/#@/' /etc/bind/db.local")
     os.system(f"mv /etc/bind/db.127 /etc/bind/db.{db_ip}")
 
     # configure dns: resolv.conf
     os.system(f"sed -i 's/nameserver /#nameserver /g' /etc/resolv.conf")
-    os.system(f'echo "nameserver {first_block_ip}.{ip_digit}" >> /etc/resolv.conf')
+    os.system(f'echo "nameserver {ip_address}" >> /etc/resolv.conf')
 
     # restarting
     os.system("service bind9 restart")
@@ -209,7 +211,7 @@ if __name__ == "__main__":
             elif (menu_conf == 3):
                 dns_reconfigure # reconfigure
                 dns_configure() # configure
-                
+
         elif (menu == 4):
             pass
         elif (menu == 5):
