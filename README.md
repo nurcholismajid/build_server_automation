@@ -10,7 +10,7 @@ Membangun sebuah server jaringan dengan service dibawah ini :
 - User Unix (Coming Soon)
 - DNS Server **(Done)**
 - Web Server **(Done)**
-- FTP (Coming Soon)
+- FTP **(Done)**
 - Mail (Coming Soon)
 - File Server (Coming Soon)
 - SSH Server **(Done)**
@@ -57,10 +57,19 @@ deb-src http://
 
 ### Install paket yang diperlukan :
 
-Install requirements dibawah ini
+Install requirements dibawah ini, berikut daftar paket dari masing-masing service
+- Main Program  : `git python3 python3-pip`
+- DHCP Server   : `isc-dhcp-server`
+- DNS Server    : `bind9 dnsutils`
+- Web Server    : `apache2 php7.0 mysql-server phpmyadmin`
+- SSH Server    : `openssh-server`
+- FTP Server    : `vsftpd ufw`
+- Mail Server   : `postfix courier-imap courier-pop roundcube`
+
+bisa juga kita install secara bersamaan dengan cara `./requirement.sh` atau `bash requirement.sh` karena perintah dibawah ini bisa kita temukan didalam file `requirement.sh`
 
 ```Shell
-apt-get install git python3 python3-pip isc-dhcp-server bind9 dnsutils apache2 php7.0 mysql-server phpmyadmin openssh-server vsftpd ufw -y
+apt-get install git python3 python3-pip isc-dhcp-server bind9 dnsutils apache2 php7.0 mysql-server phpmyadmin openssh-server vsftpd ufw postfix courier-imap courier-pop roundcube -y
 ```
 
 ### Referensi :
