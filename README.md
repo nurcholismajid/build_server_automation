@@ -23,7 +23,7 @@ Membangun sebuah server jaringan dengan service dibawah ini :
 - VPN Server <i>**(Coming Soon)**</i>
 - Firewall <i>**(Coming Soon)**</i>
 
-### Backup File Konfigurasi
+## Backup File Konfigurasi
 
 File konfigurasi original dari masing-masing service berada di folder `.backup` ketikan perintah `ls -a` untuk melihat folder.
 
