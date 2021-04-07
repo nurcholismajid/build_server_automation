@@ -1,4 +1,5 @@
 # BUILD SERVER AUTOMATION
+Sponsor : [![SMKN 1 Patrol](http://i2.wp.com/smkn1patrol.sch.id/v3/wp-content/uploads/2020/06/cropped-download-1-53x53.jpg)](http://smkn1patrol.sch.id/v3/)
 Membangun sebuah server jaringan dengan service dibawah ini :
 ### Services :
 <a href="#"><img src="https://img.shields.io/badge/Debian9-Server-_.svg?logo=debian"></a>
