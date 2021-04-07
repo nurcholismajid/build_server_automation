@@ -122,6 +122,57 @@ def dhcp_server_reconfigure():
     os.system("systemctl restart isc-dhcp-server")
     os.system("systemctl status isc-dhcp-server");input("Enter untuk kembali ke menu...")
 
+def dns_configure():
+    # backup files
+    backup_folder = f"{dir}/.backup"
+    os.system(f"cp /etc/bind/named.conf.default-zones {backup_folder}") # backup file defaul-zones
+    os.system(f"cp /etc/bind/db.local {backup_folder}") # backup file db.local
+    os.system(f"cp /etc/bind/db.127 {backup_folder}") # backup file db.127
+    os.system(f"cp /etc/resolv.conf {backup_folder}") # backup file resolv.conf
+    
+    # user input
+    domain_name = input("Masukan Domain Name : ")
+    first_block_ip = input("Masukan Blok Awal IP : ")
+    db_name = input("Masukan Nama DB name : ")
+    db_ip = input("Masukan Nama DB IP : ")
+    ip_digit = input("Masukan Tiga Digit IP Belakang : ")
+
+    # configure dns: default zones
+    os.system(f"sed -i 's/zone \"localhost\"/zone \"{domain_name}\"/g' /etc/bind/named.conf.default-zones")
+    os.system(f"sed -i 's/zone \"127.in-addr.arpa\"/zone \"{first_block_ip}.in-addr.arpa\"/g' /etc/bind/named.conf.default-zones")
+    os.system(f"sed -i 's/bind\/\db.local/bind\/\db.{db_name}/g' /etc/bind/named.conf.default-zones")
+    os.system(f"sed -i 's/bind\/\db.127/bind\/\db.{db_ip}/g' /etc/bind/named.conf.default-zones")
+    
+    # configure dns: db.local
+    os.system(f"sed -i 's/localhost./{domain_name}./g' /etc/bind/db.local")
+    os.system(f"sed -i 's/1.0.0/{ip_digit}/g' /etc/bind/db.local")
+    os.system(f"mv /etc/bind/db.local /etc/bind/db.{db_name}")
+
+    # configure dns: db.127
+    os.system(f"sed -i 's/localhost./{domain_name}./g' /etc/bind/db.127")
+    os.system(f"sed -i 's/127.0.0.1/{first_block_ip}.{ip_digit}/g' /etc/bind/db.127")
+    os.system(f"mv /etc/bind/db.127 /etc/bind/db.{db_ip}")
+
+    # configure dns: resolv.conf
+    os.system(f"sed -i 's/nameserver /#nameserver /g' /etc/resolv.conf")
+    os.system(f'echo "nameserver {first_block_ip}.{ip_digit}" >> /etc/resolv.conf')
+
+    # restarting
+    os.system("service bind9 restart")
+    os.system("service bind9 status");input("Enter untuk kembali ke menu...")
+
+def dns_reconfigure():
+    # backup file
+    backup_folder = f"{dir}/.backup"
+    os.system(f"cp {backup_folder}/named.conf.default-zones /etc/bind/")
+    os.system(f"cp {backup_folder}/db.local /etc/bind/")
+    os.system(f"cp {backup_folder}/db.127 /etc/bind/")
+    os.system(f"cp {backup_folder}/resolv.conf /etc/")
+
+    # restarting
+    os.system("service bind9 restart")
+    os.system("service bind9 status");input("Enter untuk kembali ke menu...")
+
 if __name__ == "__main__":
     while(True):
         # create backup folder
@@ -150,7 +201,15 @@ if __name__ == "__main__":
                 dhcp_server_configure() # configure
 
         elif (menu == 3):
-            pass
+            enu_conf = configurate_menu("DNS Server")
+            if (menu_conf == 1):
+                dns_configure() # configure
+            elif (menu_conf == 2):
+                dns_reconfigure() # reconfigure
+            elif (menu_conf == 3):
+                dns_reconfigure # reconfigure
+                dns_configure() # configure
+                
         elif (menu == 4):
             pass
         elif (menu == 5):
