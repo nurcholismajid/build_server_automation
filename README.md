@@ -58,13 +58,15 @@ deb-src http://
 ### Install paket yang diperlukan :
 
 Install requirements dibawah ini, berikut daftar paket dari masing-masing service
-- Main Program  : `git python3 python3-pip`
-- DHCP Server   : `isc-dhcp-server`
-- DNS Server    : `bind9 dnsutils`
-- Web Server    : `apache2 php7.0 mysql-server phpmyadmin`
-- SSH Server    : `openssh-server`
-- FTP Server    : `vsftpd ufw`
-- Mail Server   : `postfix courier-imap courier-pop roundcube`
+| Service | Requirement |
+| ----- | ------ |
+| Main Program|`git python3 python3-pip` |
+| DHCP Server |`isc-dhcp-server` |
+| DNS Server  |`bind9 dnsutils` |
+| Web Server  |`apache2 php7.0 mysql-server phpmyadmin` |
+| SSH Server  |`openssh-server` |
+| FTP Server  |`vsftpd ufw` |
+| Mail Server |`postfix courier-imap courier-pop roundcube` |
 
 bisa juga kita install secara bersamaan dengan cara `./requirement.sh` atau `bash requirement.sh` karena perintah dibawah ini bisa kita temukan didalam file `requirement.sh`
 
