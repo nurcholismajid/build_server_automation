@@ -197,7 +197,7 @@ def ssh_server_configure():
     # check setup
     os.system("systemctl restart ssh")
     os.system("systemctl status ssh")
-    os.system("netstat -tulpn | grep ssh")
+    os.system("netstat -tulpn | grep ssh");input("Enter untuk kembali ke menu...")
 
 def ssh_server_reconfigure():
     # backup file
@@ -207,7 +207,7 @@ def ssh_server_reconfigure():
     # restarting and enable
     os.system("systemctl start ssh")
     os.system("systemctl enable ssh")
-    os.system("systemctl status ssh")
+    os.system("systemctl status ssh");input("Enter untuk kembali ke menu...")
 
 if __name__ == "__main__":
     while(True):
