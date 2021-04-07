@@ -152,7 +152,7 @@ def dns_configure():
     # configure dns: db.127
     os.system(f"sed -i 's/localhost./{domain_name}./g' /etc/bind/db.local")
     os.system(f"sed -i 's/127.0.0.1/{ip_address}/g' /etc/bind/db.local")
-    os.system(f"sed -i '14s/@/#@/' /etc/bind/db.local")
+    os.system(f"sed -i '14d' /etc/bind/db.local")
     os.system(f"mv /etc/bind/db.local /etc/bind/db.{db_name}")
 
     # configure dns: resolv.conf
