@@ -27,7 +27,8 @@ def show_menu():
     console.print("[2]. :spaghetti: Konfigurasi [bold yellow]DHCP Server[/bold yellow]")
     console.print("[3]. :pizza: Konfigurasi [bold purple]DNS Server[/bold purple]")
     console.print("[4]. :hamburger: Konfigurasi [bold cyan]SSH Server[/bold cyan]")
-    console.print("[5]. :space_invader: [bold yellow]EXIT[/bold yellow]")
+    console.print("[5]. :hamburger: Konfigurasi [bold cyan]FTP Server[/bold cyan]")
+    console.print("[6]. :space_invader: [bold yellow]EXIT[/bold yellow]")
     console.print("------------------------------")
     menu = int(input("Pilih Menu : "))
     return menu
@@ -178,6 +179,7 @@ def dns_reconfigure():
     os.system("service bind9 restart")
     os.system("service bind9 status");input("Enter untuk kembali ke menu...")
 
+# SSH Configurate
 def ssh_server_configure():
     # backup files
     backup_folder = f"{dir}/.backup"
@@ -199,6 +201,7 @@ def ssh_server_configure():
     os.system("systemctl status ssh")
     os.system("netstat -tulpn | grep ssh");input("Enter untuk kembali ke menu...")
 
+# SSH Reconfigurate
 def ssh_server_reconfigure():
     # backup file
     backup_folder = f"{dir}/.backup"
@@ -208,6 +211,41 @@ def ssh_server_reconfigure():
     os.system("systemctl start ssh")
     os.system("systemctl enable ssh")
     os.system("systemctl status ssh");input("Enter untuk kembali ke menu...")
+
+# FTP Configurate
+def ftp_server_configure():
+    # backup files
+    backup_folder = f"{dir}/.backup"
+    os.system(f"cp /etc/vsftpd.conf {backup_folder}") # backup file sshd_config
+
+    # user input
+    user = input("Masukan Nama : ")
+
+    # firewall allow port
+    os.system("ufw allow 20/tcp")
+    os.system("ufw allow 21/tcp")
+
+    # add FTP user
+    os.system(f"adduser {user}")
+    os.system(f"passwd {user}")
+    os.system(f'echo {user} | tee -a /etc/vsftpd.userlist')
+
+    # restart
+    os.system("systemctl restart vsftpd")
+    os.system("systemctl enable vsftpd")
+    input("Enter untuk kembali ke menu...")
+
+# FTP Reconfigurate
+def ftp_server_reconfigure():
+    # backup file
+    backup_folder = f"{dir}/.backup"
+    os.system(f"cp {backup_folder}/vsftpd.conf /etc/")
+
+    # restart
+    os.system("systemctl restart vsftpd")
+    os.system("systemctl enable vsftpd")
+    input("Enter untuk kembali ke menu...")
+
 
 if __name__ == "__main__":
     while(True):
@@ -261,4 +299,16 @@ if __name__ == "__main__":
                 ssh_server_configure() # configure
 
         elif (menu == 5):
+            elif (menu == 4):
+            menu_conf = configurate_menu("SSH Server")
+            if (menu_conf == 1):
+                ftp_server_configure() # configure
+            elif (menu_conf == 2):
+                ftp_server_reconfigure() # reconfigure
+            elif (menu_conf == 3):
+                ftp_server_reconfigure() # reconfigure
+                os.system("clear")
+                ftp_server_configure() # configure
+
+        elif (menu == 6):
             break
