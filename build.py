@@ -203,7 +203,7 @@ if __name__ == "__main__":
                 dhcp_server_configure() # configure
 
         elif (menu == 3):
-            enu_conf = configurate_menu("DNS Server")
+            menu_conf = configurate_menu("DNS Server")
             if (menu_conf == 1):
                 dns_configure() # configure
             elif (menu_conf == 2):
