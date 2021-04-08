@@ -11,7 +11,7 @@ Membangun sebuah server jaringan dengan service dibawah ini :
 - DNS Server **(Done)**
 - Web Server **(Done)**
 - FTP **(Done)**
-- Mail (Coming Soon)
+- Mail Server **(Done)**
 - File Server (Coming Soon)
 - SSH Server **(Done)**
 - CA (OpenSSL) (Coming Soon)
@@ -76,3 +76,4 @@ apt-get install git python3 python3-pip isc-dhcp-server bind9 dnsutils apache2 p
 
 ### Referensi :
 - [Replacing With Sed](https://unix.stackexchange.com/questions/70878/replacing-string-based-on-line-number)
+- [Mail Server](https://pakfaisal.com/2020/07/31/tutorial-konfigurasi-mail-server-pada-debian-10/)

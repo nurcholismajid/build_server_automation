@@ -274,10 +274,10 @@ def mail_server_configure():
 
     # restarting
     os.system("systemctl restart postfix")
-    os.system("systemctl restart dovecode")
+    os.system("systemctl restart dovecot")
     os.system("systemctl restart bind9")
     os.system("systemctl status postfix.service")
-    os.system("systemctl status dovecode.service")
+    os.system("systemctl status dovecot.service")
     os.system("systemctl status bind9.service")
     input("Enter untuk kembali ke menu...")
 
@@ -290,10 +290,10 @@ def mail_server_reconfigure():
 
     # restarting
     os.system("systemctl restart postfix")
-    os.system("systemctl restart dovecode")
+    os.system("systemctl restart dovecot")
     os.system("systemctl restart bind9")
     os.system("systemctl status postfix.service")
-    os.system("systemctl status dovecode.service")
+    os.system("systemctl status dovecot.service")
     os.system("systemctl status bind9.service")
     input("Enter untuk kembali ke menu...")
 
