@@ -2,8 +2,8 @@
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)<br>
 Membangun sebuah server jaringan dengan service dibawah ini :
 ### Services :
-<a href="#"><img src="https://img.shields.io/badge/Debian9-Server-_.svg?logo=debian"></a>
-<a href="#"><img src="https://img.shields.io/badge/Bash-SHELL-_.svg?logo=terminal"></a>
+<a href="#"><img src="https://img.shields.io/badge/Debian10-Server-_.svg?logo=debian"></a>
+<a href="#"><img src="https://img.shields.io/badge/Bash-SHELL-_.svg?logo=shell"></a>
 
 - IP Address **(Done)**
 - RAID (Coming Soon)

@@ -28,7 +28,8 @@ def show_menu():
     console.print("[3]. :pizza: Konfigurasi [bold purple]DNS Server[/bold purple]")
     console.print("[4]. :hamburger: Konfigurasi [bold cyan]SSH Server[/bold cyan]")
     console.print("[5]. :hamburger: Konfigurasi [bold cyan]FTP Server[/bold cyan]")
-    console.print("[6]. :space_invader: [bold yellow]EXIT[/bold yellow]")
+    console.print("[6]. :hamburger: Konfigurasi [bold yellow]Mail Server[/bold yellow]")
+    console.print("[7]. :space_invader: [bold yellow]EXIT[/bold yellow]")
     console.print("------------------------------")
     menu = int(input("Pilih Menu : "))
     return menu
@@ -248,6 +249,53 @@ def ftp_server_reconfigure():
     os.system("systemctl enable vsftpd.service")
     input("Enter untuk kembali ke menu...")
 
+def mail_server_configure():
+    # backup files
+    backup_folder = f"{dir}/.backup"
+    os.system(f"cp /etc/postfix/main.cf {backup_folder}") # backup file main.cf
+    os.system(f"cp /etc/dovecot/conf.d/10-mail.conf {backup_folder}") # backup file 10-mail.conf
+    os.system(f"cp /etc/dovecot/conf.d/10-auth.conf {backup_folder}") # backup file 10-auth.conf
+
+    # membuat direktori penyimpanan Mail server
+    os.system("maildirmake.dovecot /etc/skel/Maildir")
+
+    # Pada baris dibawah tambahkan code
+    os.system('echo "home_mailbox = Maildir/" >> /etc/postfix/main.cf')
+
+    # konfigurasi paket aplikasi dovecot
+    # line 30 | 10-mail.conf
+    os.system("sed -i '30s|mbox:~/mail:INBOX=/var/mail/%u|maildir:~/Maildir|' /etc/dovecot/conf.d/10-mail.conf")
+    # line | 10-auth.conf
+    os.system("sed -i '10s/#//' /etc/dovecot/conf.d/10-auth.conf")
+    os.system("sed -i '10s/yes/no/' /etc/dovecot/conf.d/10-auth.conf")
+
+    # reconfigure
+    os.system("dpkg-reconfigure postfix")
+
+    # restarting
+    os.system("systemctl restart postfix")
+    os.system("systemctl restart dovecode")
+    os.system("systemctl restart bind9")
+    os.system("systemctl status postfix.service")
+    os.system("systemctl status dovecode.service")
+    os.system("systemctl status bind9.service")
+    input("Enter untuk kembali ke menu...")
+
+def mail_server_reconfigure():
+    # backup file
+    backup_folder = f"{dir}/.backup"
+    os.system(f"cp {backup_folder}/main.cf /etc/postfix/")
+    os.system(f"cp {backup_folder}/10-mail.conf /etc/dovecot/conf.d/")
+    os.system(f"cp {backup_folder}/10-auth.conf /etc/dovecot/conf.d/")
+
+    # restarting
+    os.system("systemctl restart postfix")
+    os.system("systemctl restart dovecode")
+    os.system("systemctl restart bind9")
+    os.system("systemctl status postfix.service")
+    os.system("systemctl status dovecode.service")
+    os.system("systemctl status bind9.service")
+    input("Enter untuk kembali ke menu...")
 
 if __name__ == "__main__":
     while(True):
@@ -301,7 +349,7 @@ if __name__ == "__main__":
                 ssh_server_configure() # configure
 
         elif (menu == 5):
-            menu_conf = configurate_menu("SSH Server")
+            menu_conf = configurate_menu("FTP Server")
             if (menu_conf == 1):
                 ftp_server_configure() # configure
             elif (menu_conf == 2):
@@ -312,4 +360,15 @@ if __name__ == "__main__":
                 ftp_server_configure() # configure
 
         elif (menu == 6):
+            menu_conf = configurate_menu("MAIL Server")
+            if (menu_conf == 1):
+                mail_server_configure() # configure
+            elif (menu_conf == 2):
+                mail_server_reconfigure() # reconfigure
+            elif (menu_conf == 3):
+                mail_server_reconfigure() # reconfigure
+                os.system("clear")
+                mail_server_configure() # configure
+
+        elif (menu == 7):
             break
