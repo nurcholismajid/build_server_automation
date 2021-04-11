@@ -1,4 +1,4 @@
-# BUILD SERVER AUTOMATION
+# SERVER INSTALLER
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)<br>
 Membangun sebuah server jaringan dengan service dibawah ini :
 ### Services :
