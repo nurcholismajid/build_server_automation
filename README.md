@@ -1,5 +1,5 @@
 # SERVER INSTALLER
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)<br>
+[![forthebadge made-with-bash](http://ForTheBadge.com/images/badges/made-with-bash.svg)](https://www.gnu.org/software/bash/)<br>
 Membangun sebuah server jaringan dengan service dibawah ini :
 ### Screenshot
 ![](https://i.imgur.com/qxKgNB5.png)
@@ -29,6 +29,7 @@ Membangun sebuah server jaringan dengan service dibawah ini :
 
 ## Backup File Konfigurasi
 
+> **Jangan Hapus Folder `.backup`!**
 File konfigurasi original dari masing-masing service berada di folder `.backup` ketikan perintah `ls -a` untuk melihat folder.
 
 ```Markdown
@@ -42,6 +43,43 @@ File konfigurasi original dari masing-masing service berada di folder `.backup` 
 ```
 
 ## Tutorial :
+### Install paket yang diperlukan :
+
+Install requirements dibawah ini, berikut daftar paket dari masing-masing service
+|    Service  | Requirement |
+| ----------- | ----------- |
+| Main Program|`apt-get install git python3 python3-pip` |
+| DHCP Server |`apt-get install isc-dhcp-server` |
+| DNS Server  |`apt-get install bind9 dnsutils` |
+| Web Server  |`apt-get install apache2 php7.0 mysql-server phpmyadmin` |
+| SSH Server  |`apt-get install openssh-server` |
+| FTP Server  |`apt-get install vsftpd ufw` |
+| Mail Server |`apt-get install postfix courier-imap courier-pop roundcube` |
+
+bisa juga kita install secara bersamaan dengan cara `./requirement.sh` atau `bash requirement.sh` karena perintah dibawah ini bisa kita temukan didalam file `requirement.sh`
+
+```Shell
+apt-get install git python3 python3-pip isc-dhcp-server bind9 dnsutils apache2 php7.0 mysql-server phpmyadmin openssh-server vsftpd ufw postfix courier-imap courier-pop roundcube -y
+```
+
+### Cloning Repositori (Program)
+
+Setelah kita install semua paket diatas kita cloning repositorinya dengan perintah :
+```Git
+git clone https://github.com/nurcholismajid/build_server_automation.git server_installer
+```
+
+buka dan berikan akses execute pada `build.sh`
+```Shell
+cd server_installer
+chmod +x build.sh
+```
+
+jalankan dengan salah satu perintah berikut :
+```Shell
+./build.sh
+bash build.sh
+```
 ### Disable Connect Internet
 
 Pada file `sources.list` berikan tanda pagar `#` pada bagian depan `deb http://` dan `deb-src http://`.
@@ -50,33 +88,22 @@ Pada file `sources.list` berikan tanda pagar `#` pada bagian depan `deb http://`
 nano /etc/apt/sources.list
 
 -----------Before----------
+
 deb http://
 deb-src http://
+
 -----------After-----------
+
 # deb http://
 # deb-src http://
+
 --------------------------
-```
-
-### Install paket yang diperlukan :
-
-Install requirements dibawah ini, berikut daftar paket dari masing-masing service
-| Service | Requirement |
-| ----- | ------ |
-| Main Program|`git python3 python3-pip` |
-| DHCP Server |`isc-dhcp-server` |
-| DNS Server  |`bind9 dnsutils` |
-| Web Server  |`apache2 php7.0 mysql-server phpmyadmin` |
-| SSH Server  |`openssh-server` |
-| FTP Server  |`vsftpd ufw` |
-| Mail Server |`postfix courier-imap courier-pop roundcube` |
-
-bisa juga kita install secara bersamaan dengan cara `./requirement.sh` atau `bash requirement.sh` karena perintah dibawah ini bisa kita temukan didalam file `requirement.sh`
-
-```Shell
-apt-get install git python3 python3-pip isc-dhcp-server bind9 dnsutils apache2 php7.0 mysql-server phpmyadmin openssh-server vsftpd ufw postfix courier-imap courier-pop roundcube -y
 ```
 
 ### Referensi :
 - [Replacing With Sed](https://unix.stackexchange.com/questions/70878/replacing-string-based-on-line-number)
 - [Mail Server](https://pakfaisal.com/2020/07/31/tutorial-konfigurasi-mail-server-pada-debian-10/)
+
+### Inspired
+- LKS2021 SMK JABAR
+
