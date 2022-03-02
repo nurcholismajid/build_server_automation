@@ -233,7 +233,7 @@ configure_ssh_server() {
     systemctl status ssh
 
     # configure
-    sed -i "s/#Port 22/Port {port}/g" /etc/ssh/sshd_config
+    sed -i "s/#Port 22/Port ${port}/g" /etc/ssh/sshd_config
 
     # check setup
     systemctl restart ssh
