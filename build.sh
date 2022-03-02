@@ -186,13 +186,13 @@ configure_dns_server() {
     # configure dns: db.local
     sed -i "s/localhost./$domain_name./g" /etc/bind/db.127
     sed -i "s/1.0.0/$ip_digit/g" /etc/bind/db.127
-    mv /etc/bind/db.127 /etc/bind/db.{db_ip}
+    mv /etc/bind/db.127 /etc/bind/db.${db_ip}
 
     # configure dns: db.127
     sed -i "s/localhost./$domain_name./g" /etc/bind/db.local
     sed -i "s/127.0.0.1/$ip_address/g" /etc/bind/db.local
     sed -i '14d' /etc/bind/db.local
-    mv /etc/bind/db.local /etc/bind/db.{db_name}
+    mv /etc/bind/db.local /etc/bind/db.${db_name}
 
     # configure dns: resolv.conf
     sed -i "s/nameserver /#nameserver /g" /etc/resolv.conf
